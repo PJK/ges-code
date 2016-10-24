@@ -1,0 +1,39 @@
+os:
+  - linux
+
+sudo: required
+dist: trusty
+
+# blocklist
+#branches:
+#	except:
+#		- master
+
+# safelist
+branches:
+  only:
+    - develop-master
+
+# Install dependencies
+# Install any prerequisites or dependencies necessary to run our builds
+
+install:
+
+# Linux dependencies
+
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
+      sudo apt-get install -qq cmake libboost-all-dev libc6-dev libm17n-0 libstdc++-4.9-dev
+    fi
+
+script:
+  - cd "$TRAVIS_BUILD_DIR"
+  - rm -rf build && mkdir build
+  - cd build && cmake -DCMAKE_INSTALL_PREFIX=/usr ..
+  - make -V=1 -j4 -C build 
+
+# Email on failure only
+
+notifications:
+  email:
+    on_success: never
+    on_failure: never
