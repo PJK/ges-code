@@ -10,9 +10,9 @@ dist: trusty
 #		- master
 
 # safelist
-branches:
-  only:
-    - develop
+#branches:
+#  only:
+#    - develop
 
 # Install dependencies
 # Install any prerequisites or dependencies necessary to run our builds
