@@ -22,7 +22,7 @@ install:
 # Linux dependencies
     
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
-      sudo apt-get install -qq cmake libboost-all-dev libc6-dev libm17n-0 libstdc++-4.9-dev
+      sudo apt-get install -qq cmake libboost-all-dev libc6-dev libm17n-0 libstdc++-4.9-dev;
     fi
 
 script:
