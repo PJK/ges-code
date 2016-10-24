@@ -33,7 +33,7 @@ script:
   - git submodule update --init
   - rm -rf build && mkdir build
   - cd build && cmake -DCMAKE_INSTALL_PREFIX=/usr ..
-  - make --debug=v -j4 -C build 
+  - make --debug=v -j4
 
 # Email on failure only
 
