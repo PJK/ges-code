@@ -12,7 +12,7 @@ dist: trusty
 # safelist
 branches:
   only:
-    - develop-master
+    - develop
 
 # Install dependencies
 # Install any prerequisites or dependencies necessary to run our builds
