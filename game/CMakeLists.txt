@@ -94,10 +94,22 @@ ADD_MSVC_PRECOMPILED_HEADER("server/stdafx.h" "server/stdafx.cpp" SERVER_SOURCES
 ucm_add_dirs("server/ges/py" TO GEPY_SOURCES NO_HEADERS)
 ADD_MSVC_PRECOMPILED_HEADER("server/ges/py/ge_pyprecom.h" "server/ges/py/ge_pyprecom.cpp" GEPY_SOURCES)
 
-add_library(server SHARED ${SERVER_SOURCES} ${GEPY_SOURCES})
-add_dependencies(server python boost_python tier1)
+# Boost package defines
+set(Boost_USE_STATIC_LIBS ON)
+set(Boost_USE_MULTITHREADED ON)
+set(Boost_USE_STATIC_RUNTIME ON)
+find_package(Boost 1.61.0)
+if(Boost_FOUND)
+	include_directories(${Boost_INCLUDE_DIRS})
+	message("-- Boost Directories -- " ${Boost_INCLUDE_DIRS} " -- " ${BOOST_LIBRARYDIR})
+else()
+	message(FATAL_ERROR "Could not find Boost libraries. Download and install at least version 1.61.0 to continue.")
+endif()
 
-target_link_libraries(server -m32 -Wl,--no-undefined ${SHARED_LIBS} python3.5m boost_python)
+add_library(server SHARED ${SERVER_SOURCES} ${GEPY_SOURCES})
+add_dependencies(server python tier1)
+
+target_link_libraries(server -m32 -Wl,--no-undefined ${SHARED_LIBS} python3.5m)
 target_compile_definitions(server PUBLIC ${SHARED_DEFINITIONS} GAME_DLL HL2_DLL Py_ENABLE_SHARED GE_AI)
 target_include_directories(server PUBLIC "server" "server/hl2" "server/hl2mp" "server/ges" "server/ges/ai"
   "server/ges/py" "server/ges/ent" ${SHARED_INCLUDE_DIRS})
