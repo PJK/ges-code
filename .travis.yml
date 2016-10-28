@@ -19,7 +19,7 @@ env:
   - CI_DOCKER_IMAGE_UBUNTNU=daald/ubuntu32:xenia
 
 before_install:
-  - docker pull $CI_DOCKER_IMAGE
+  - docker pull $CI_DOCKER_IMAGE_UBUNTNU
 
 script:
   - docker run -t --rm -v $TRAVIS_BUILD_DIR:$TRAVIS_BUILD_DIR -w $TRAVIS_BUILD_DIR $CI_DOCKER_IMAGE_UBUNTU ./build-ges-ubuntu-docker.sh
