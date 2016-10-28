@@ -14,11 +14,11 @@ sleep 2s
 
 # prepare
 apt-get update -qq
-apt-get install -qq cmake libboost-dev libc6-dev git
-git submodule update --init
+apt-get install -qq cmake gcc g++ git libboost-dev libc6-dev libldap2-dev
+git submodule init --recursive
 
 # build
-cd ges
+cd ges-code
 rm -rf build && mkdir build
 cd build && cmake -DCMAKE_INSTALL_PREFIX=/usr ..
 make -j4
