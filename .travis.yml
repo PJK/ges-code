@@ -25,7 +25,7 @@ before_install:
 # docker run -d -p 127.0.0.1:80:4567 carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec foreman start;"
 
 script:
-  - docker run -t --rm -v $TRAVIS_BUILD_DIR:$TRAVIS_BUILD_DIR -w $TRAVIS_BUILD_DIR $CI_DOCKER_IMAGE_UBUNTU ./travis/build-ges-ubuntu-docker.sh
+  - docker run -it $CI_DOCKER_IMAGE_UBUNTU ./travis/build-ges-ubuntu-docker.sh
 
 # Email on failure only
 notifications:
