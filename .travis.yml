@@ -23,8 +23,11 @@ before_install:
   - docker pull $CI_DOCKER_IMAGE_UBUNTU
 
 # Start the container from the image and perform tests.
+#script:
+#  - "docker run -i -v \"${PWD}:/ges\" $CI_DOCKER_IMAGE_UBUNTU /bin/bash -c \"linux32 --32bit i386 /ges/travis/build-ges-ubuntu-docker.sh\""
+
 script:
-  - docker run -it $CI_DOCKER_IMAGE_UBUNTUs ./travis/build-ges-ubuntu-docker.sh
+  - docker run -it $CI_DOCKER_IMAGE_UBUNTU ./travis/build-ges-ubuntu-docker.sh
 
 # Email on failure only
 notifications:
