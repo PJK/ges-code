@@ -16,7 +16,7 @@ branches:
 # For Docker image, see: https://hub.docker.com/r/daald/ubuntu32/tags/
 
 script:
-  - "docker run -i -v \"${PWD}:/MyProgram\" daald/ubuntu32:xenial /bin/bash -c \"linux32 --32bit i386 /MyProgram/build-ges-ubuntu-docker.sh\""
+  - "docker run -i -v \"${PWD}:/ges-code\" daald/ubuntu32:xenial /bin/bash -c \"linux32 --32bit i386 /ges-code/build-ges-ubuntu-docker.sh\""
 
 # Email on failure only
 
