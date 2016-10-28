@@ -1,0 +1,49 @@
+os:
+  - linux
+
+sudo: required
+dist: trusty
+
+#addons:
+#  apt:
+#    sources:
+#    - ubuntu-toolchain-r-test
+#    packages:
+#    - gcc-4.8
+#    - g++-4.8
+
+# safelist
+branches:
+  only:
+    - develop-master
+
+# Install dependencies
+# Install any prerequisites or dependencies necessary to run our builds
+
+before_install:
+  # Make sure apt is up to date.
+  - sudo apt-get update -qq
+  # For native code tests, we need some additional libraries if we are in a 64-bit environment.
+  - if [ `uname -m` = x86_64 ]; then sudo apt-get install -qq --force-yes gcc-multilib; fi
+
+install:
+
+# Linux dependencies
+    
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
+      sudo apt-get install -qq cmake libboost-all-dev:i386 libc6-dev:i386 libm17n-0:i386 libstdc++-4.8-dev:i386;
+    fi
+
+script:
+  - cd "$TRAVIS_BUILD_DIR"
+  - git submodule update --init
+  - rm -rf build && mkdir build
+  - cd build && cmake -DCMAKE_INSTALL_PREFIX=/usr ..
+  - make -j4
+
+# Email on failure only
+
+notifications:
+  email:
+    on_success: never
+    on_failure: never
