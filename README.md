@@ -36,7 +36,7 @@ your distro's package manager.
 ### Linux Build Process
 1. Checkout the repository using git
 2. Open a terminal window in the root of the repository you just checked out
-3. Initialize the submodules: ```git submodule init --recursive```
+3. Initialize the submodules: ```git submodule update --init --recursive```
 4. Build with CMake: ```mkdir build && cd build```
 5. ```cmake -DCMAKE_INSTALL_PREFIX=[path_to_gesource] ..```
 6. ```make install```
