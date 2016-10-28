@@ -16,16 +16,15 @@ services:
 
 # Setup up preferred docker iamges
 env:
-  - CI_DOCKER_IMAGE_UBUNTNU=daald/ubuntu32:xenial
+  - CI_DOCKER_IMAGE_UBUNTU=daald/ubuntu32:xenial
 
+# Pull containers from Docker Hub.
 before_install:
-  - docker pull $CI_DOCKER_IMAGE_UBUNTNU
+  - docker pull $CI_DOCKER_IMAGE_UBUNTU
 
-# Run build commands such as:
-# docker run -d -p 127.0.0.1:80:4567 carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec foreman start;"
-
+# Start the container from the image and perform tests.
 script:
-  - docker run -it $CI_DOCKER_IMAGE_UBUNTU ./travis/build-ges-ubuntu-docker.sh
+  - docker run -it $CI_DOCKER_IMAGE_UBUNTUs ./travis/build-ges-ubuntu-docker.sh
 
 # Email on failure only
 notifications:
