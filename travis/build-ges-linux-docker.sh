@@ -50,6 +50,6 @@ if [[ "${BUILD_ENABLED}" == "true" ]]; then
   
  else
  
-  echo -e "\bNOTICE: Build for ${DISTRO} currently disabled. Exiting job.
+  echo -e "\bNOTICE: Build for ${DISTRO} currently disabled. Exiting job."
  
  fi
