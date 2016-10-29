@@ -9,7 +9,7 @@ sleep 2s
 ######################
 
 apt-get update -qq
-apt-get install -qq cmake gcc g++ git libboost-dev libldap2-dev
+apt-get install -qq cmake gcc g++ git libboost-dev libldap2-dev nis
 git submodule init --recursive
 
 ######################
