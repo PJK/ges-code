@@ -14,7 +14,7 @@ sleep 2s
 if [[ "${CI_DOCKER_IMAGE}" == "32bit/debian:jessie" ]]; then
 
   DISTRO="Debian"
-  BUILD_ENABLED="truedon"
+  BUILD_ENABLED="true"
   apt-get update -qq
   apt-get install -qq cmake gcc g++ git libboost-dev libldap2-dev
   git submodule init --recursive
@@ -35,9 +35,9 @@ fi
 
 cat<<- EOF
 
-------------------------------
-Starting ${DISTRO} build test
-------------------------------
+-------------------------------------
+Starting build: ${CI_DOCKER_IMAGE}"
+-------------------------------------
 
 EOF
 
@@ -50,6 +50,6 @@ if [[ "${BUILD_ENABLED}" == "true" ]]; then
   
  else
  
-  echo -e "\bNOTICE: Build for ${DISTRO} currently disabled. Exiting job."
+  echo -e "\bNOTICE: Build for ${CI_DOCKER_IMAGE} currently disabled. Exiting job."
  
  fi
