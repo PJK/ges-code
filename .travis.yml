@@ -31,11 +31,7 @@ before_install:
 # Failed builds: Ubuntu 16.04 Xenian - WIP
 
 script:
-  - "docker run -i -v \"${PWD}:/ges-code\" $CI_DOCKER_IMAGE /bin/bash -c \"linux32 --32bit i386 /ges-code/travis/build-ges-debian-docker.sh\""
-#  - "docker run -i -v \"${PWD}:/ges-code\" $CI_DOCKER_IMAGE /bin/bash -c \"linux32 --32bit i386 /ges-code/travis/build-ges-ubuntu-docker.sh\""
-
-#script:
-#  - docker run -it $CI_DOCKER_IMAGE_UBUNTU ./travis/build-ges-ubuntu-docker.sh
+  - "docker run -i -v \"${PWD}:/ges-code\" $CI_DOCKER_IMAGE /bin/bash -c \"linux32 --32bit i386 /ges-code/travis/build-ges-linux-docker.sh\""
 
 # Email on failure only
 notifications:
