@@ -4,13 +4,17 @@
 
 sleep 2s
 
+######################
 # prepare
+######################
+
 # Travis CI jobs are run in paralelle, each with a different ENV var
 # Based on the env var, adjust dependencies, then begin the unified build
 
 if [[ "${CI_DOCKER_IMAGE}" == "32bit/debian:jessie" ]]; then
 
   DISTRO="Debian"
+  BUILD_ENABLED="truedon"
   apt-get update -qq
   apt-get install -qq cmake gcc g++ git libboost-dev libldap2-dev
   git submodule init --recursive
@@ -18,13 +22,16 @@ if [[ "${CI_DOCKER_IMAGE}" == "32bit/debian:jessie" ]]; then
 elif [[ "${CI_DOCKER_IMAGE}" == "daald/ubuntu32:xenial" ]]; then
 
   DISTRO="Ubuntu"
+  BUILD_ENABLED="false"
   apt-get update -qq
   apt-get install -qq cmake gcc g++ git libboost-dev libc6-dev libldap2-dev
   git submodule init --recursive
 
 fi
 
+######################
 # build
+######################
 
 cat<<- EOF
 
@@ -34,7 +41,15 @@ Starting ${DISTRO} build test
 
 EOF
 
-cd ges-code
-rm -rf build && mkdir build
-cd build && cmake -DCMAKE_INSTALL_PREFIX=/usr ..
-make -j4
+if [[ "${BUILD_ENABLED}" == "true" then
+
+  cd ges-code
+  rm -rf build && mkdir build
+  cd build && cmake -DCMAKE_INSTALL_PREFIX=/usr ..
+  make -j4
+  
+ else
+ 
+  echo -e "\bNOTICE: Build for ${DISTRO} currently disabled. Exiting job.
+ 
+ fi
