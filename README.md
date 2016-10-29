@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/ProfessorKaos64/ges-code.svg?branch=master)](https://travis-ci.org/ProfessorKaos64/ges-code)
+[![Build Status](https://travis-ci.org/ProfessorKaos64/ges-code.svg?branch=develop-master)](https://travis-ci.org/ProfessorKaos64/ges-code)
 
 # GoldenEye: Source
 ## About
