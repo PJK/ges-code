@@ -16,13 +16,13 @@ services:
 
 # Setup up preferred docker iamges
 env:
-  - CI_DOCKER_IMAGE_UBUNTU=daald/ubuntu32:xenial
   - CI_DOCKER_IMAGE_DEBIAN=32bit/debian:jessie
+  - CI_DOCKER_IMAGE_UBUNTU=daald/ubuntu32:xenial
 
 # Pull containers from Docker Hub.
 before_install:
-  - docker pull $CI_DOCKER_IMAGE_UBUNTU
   - docker pull $CI_DOCKER_IMAGE_DEBIAN
+  - docker pull $CI_DOCKER_IMAGE_UBUNTU
 
 # Start the container from the image and perform tests.
 # Failed builds: Ubuntu 16.04 Xenian - WIP
