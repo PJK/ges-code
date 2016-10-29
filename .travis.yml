@@ -29,10 +29,12 @@ before_install:
 
 # Start the container from the image and perform tests.
 # Failed builds: Ubuntu 16.04 Xenian - WIP
+# Script sequence is ran for each ENV above, so adjust accordingly
 
 script:
-  - "docker run -i -v \"${PWD}:/ges-code\" $CI_DOCKER_IMAGE /bin/bash -c \"linux32 --32bit i386 /ges-code/travis/build-ges-linux-docker.sh\""
-
+  - if [[ "$CI_DOCKER_IMAGE" == "debian:jessie" ]]; then
+      "docker run -i -v \"${PWD}:/ges-code\" $CI_DOCKER_IMAGE /bin/bash -c \"linux32 --32bit i386 /ges-code/travis/build-ges-linux-docker.sh\"";
+    fi
 # Email on failure only
 notifications:
   email:
