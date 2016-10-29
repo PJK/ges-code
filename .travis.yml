@@ -32,7 +32,7 @@ before_install:
 # Script sequence is ran for each ENV above, so adjust accordingly
 
 script:
-  - "docker run -i -v \"${PWD}:/ges-code\" $CI_DOCKER_IMAGE_DEBIAN /bin/bash -c \"linux32 --32bit i386 /ges-code/travis/build-ges-debian-docker.sh\""
+  - "docker run -i -v \"${PWD}:/ges-code\" $CI_DOCKER_IMAGE /bin/bash -c \"linux32 --32bit i386 /ges-code/travis/build-ges-$DISTRO-docker.sh\""
 #  - if [[ "$DISTRO" == "debian" ]]; then
 #      echo -e "\nDISTRO - debian";
 #      "docker run -i -v \"${PWD}:/ges-code\" $CI_DOCKER_IMAGE /bin/bash -c \"linux32 --32bit i386 /ges-code/travis/build-ges-debian-docker.sh\"";
