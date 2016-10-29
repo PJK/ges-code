@@ -41,7 +41,7 @@ Starting ${DISTRO} build test
 
 EOF
 
-if [[ "${BUILD_ENABLED}" == "true" then
+if [[ "${BUILD_ENABLED}" == "true" ]]; then
 
   cd ges-code
   rm -rf build && mkdir build
