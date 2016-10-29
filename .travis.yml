@@ -8,7 +8,7 @@ os:
   - linux
 
 sudo: required
-language: c++
+language: C++
 
 # safelist
 branches:
@@ -28,17 +28,8 @@ before_install:
   - docker pull $CI_DOCKER_IMAGE
 
 # Start the container from the image and perform tests.
-# Failed builds: Ubuntu 16.04 Xenian - WIP
-# Script sequence is ran for each ENV above, so adjust accordingly
-
 script:
   - "docker run -i -v \"${PWD}:/ges-code\" $CI_DOCKER_IMAGE /bin/bash -c \"linux32 --32bit i386 /ges-code/travis/build-ges-$DISTRO-docker.sh\""
-#  - if [[ "$DISTRO" == "debian" ]]; then
-#      echo -e "\nDISTRO - debian";
-#      "docker run -i -v \"${PWD}:/ges-code\" $CI_DOCKER_IMAGE /bin/bash -c \"linux32 --32bit i386 /ges-code/travis/build-ges-debian-docker.sh\"";
-#    elif [[ "$DISTRO" == "ubuntu" ]]; then
-#      echo -e "\nNOTICE - Build disabled for now";
-#    fi
 
 # Email on failure only
 notifications:
