@@ -9,7 +9,7 @@ sleep 2s
 ######################
 
 apt-get update -qq
-apt-get install -qq cmake gcc g++ git libboost-dev libldap-2.4-2 libldap2-dev
+apt-get install -qq cmake gcc g++ git libboost-dev elibldap2-dev
 git submodule init --recursive
 
 ######################
@@ -27,4 +27,4 @@ EOF
 cd ges-code
 rm -rf build && mkdir build
 cd build && cmake -DCMAKE_INSTALL_PREFIX=/usr ..
-make VERBOSE=1 -j4
+make VERBOSE=1 -j4e
