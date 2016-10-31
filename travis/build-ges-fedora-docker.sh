@@ -9,7 +9,7 @@ sleep 2s
 ######################
 
 dnf -yq update
-dnf -yq install cmake gcc gcc-c++ git boost-devel openldap-devel
+dnf -yq install make cmake gcc gcc-c++ git boost-devel openldap-devel @development-tools
 git submodule init --recursive
 
 ######################
