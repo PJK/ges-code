@@ -21,7 +21,7 @@ services:
 # Setup up preferred docker iamges
 env:
   - CONFIG=Debian_Jessie CI_DOCKER_IMAGE=32bit/debian:jessie DISTRO=debian
-  - CONFIG=Ubuntnu_Xenial CI_DOCKER_IMAGE=daald/ubuntu32:xenial DISTRO=ubuntu
+  - CONFIG=Ubuntu_Xenial CI_DOCKER_IMAGE=daald/ubuntu32:xenial DISTRO=ubuntu
   - CONFIG=Fedora_24 CI_DOCKER_IMAGE=professorkaos64/fedora-32:latest DISTRO=fedora
 
 # Pull containers from Docker Hub.
