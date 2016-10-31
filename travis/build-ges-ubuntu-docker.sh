@@ -8,10 +8,8 @@ sleep 2s
 # prepare
 ######################
 
-# libldap2-dev
-
 apt-get update -qq
-apt-get install -qq cmake gcc g++ git libboost-dev libldap-2.4-2
+apt-get install -qq cmake gcc g++ git libboost-dev libldap-2.4-2 libldap2-dev
 git submodule init --recursive
 
 ######################
