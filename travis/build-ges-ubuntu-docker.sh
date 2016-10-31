@@ -27,4 +27,4 @@ EOF
 cd ges-code
 rm -rf build && mkdir build
 cd build && cmake -DCMAKE_INSTALL_PREFIX=/usr ..
-make VERBOSE=1 -j4e
+make VERBOSE=1 -j4
