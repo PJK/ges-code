@@ -20,6 +20,7 @@ services:
 
 # Setup up preferred docker iamges
 env:
+  - CONFIG=Arch_Linux CI_DOCKER_IMAGE=professorkaos64/arch-linux-32:latest DISTRO=archlinux
   - CONFIG=Debian_Jessie CI_DOCKER_IMAGE=32bit/debian:jessie DISTRO=debian 
   - CONFIG=Ubuntu_Xenial CI_DOCKER_IMAGE=ioft/i386-ubuntu:xenial DISTRO=ubuntu 
   - CONFIG=Fedora_24 CI_DOCKER_IMAGE=professorkaos64/fedora-32:latest DISTRO=fedora
