@@ -20,10 +20,10 @@ services:
 
 # Setup up preferred docker iamges
 env:
-  - CONFIG=Arch_Linux CI_DOCKER_IMAGE=professorkaos64/arch-linux-32:latest DISTRO=archlinux ARCH=i686
-  - CONFIG=Debian_Jessie CI_DOCKER_IMAGE=32bit/debian:jessie DISTRO=debian ARCH=i386
-  - CONFIG=Ubuntu_Xenial CI_DOCKER_IMAGE=ioft/i386-ubuntu:xenial DISTRO=ubuntu ARCH=i386
-  - CONFIG=Fedora_24 CI_DOCKER_IMAGE=professorkaos64/fedora-32:latest DISTRO=fedoraARCH=i386
+  - CONFIG=Arch_Linux CI_DOCKER_IMAGE=professorkaos64/arch-linux-32:latest DISTRO=archlinux ARCH=i686  language=cpp
+  - CONFIG=Debian_Jessie CI_DOCKER_IMAGE=32bit/debian:jessie DISTRO=debian ARCH=i386 language=cpp
+  - CONFIG=Ubuntu_Xenial CI_DOCKER_IMAGE=ioft/i386-ubuntu:xenial DISTRO=ubuntu ARCH=i386 language=cpp
+  - CONFIG=Fedora_24 CI_DOCKER_IMAGE=professorkaos64/fedora-32:latest DISTRO=fedoraARCH=i386 language=cpp
 
 # Pull containers from Docker Hub.
 before_install:
@@ -32,10 +32,6 @@ before_install:
 # Start the container from the image and perform tests.
 # Add a command to show all the variables. May be useful for debugging Travis.
 script:
-  - echo "Configuration - $CONFIG;
-  - echo "Architecture - $ARCH;
-  - echo "Distro - $DISTRO;
-  - echo "Docker iamge - $CI_DOCKER_IMAGE;
   - echo "--CXX version?"; "$CXX" --version; echo "--CXX version confirmed";
   - "docker run -i -v \"${PWD}:/ges-code\" $CI_DOCKER_IMAGE /bin/bash -c \"linux32 --32bit $ARCH /ges-code/travis/build-ges-$DISTRO-docker.sh\""
 
