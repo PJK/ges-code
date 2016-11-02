@@ -20,10 +20,10 @@ services:
 
 # Setup up preferred docker iamges
 env:
-  - CONFIG=Arch_Linux CI_DOCKER_IMAGE=professorkaos64/arch-linux-32:latest DISTRO=archlinux ARCH=i686  language=cpp
-  - CONFIG=Debian_Jessie CI_DOCKER_IMAGE=32bit/debian:jessie DISTRO=debian ARCH=i386 language=cpp
-  - CONFIG=Ubuntu_Xenial CI_DOCKER_IMAGE=ioft/i386-ubuntu:xenial DISTRO=ubuntu ARCH=i386 language=cpp
-  - CONFIG=Fedora_24 CI_DOCKER_IMAGE=professorkaos64/fedora-32:latest DISTRO=fedoraARCH=i386 language=cpp
+  - CONFIG=Arch_Linux CI_DOCKER_IMAGE=professorkaos64/arch-linux-32:latest DISTRO=archlinux ARCH=i386
+  - CONFIG=Debian_Jessie CI_DOCKER_IMAGE=32bit/debian:jessie DISTRO=debian ARCH=i386
+  - CONFIG=Ubuntu_Xenial CI_DOCKER_IMAGE=ioft/i386-ubuntu:xenial DISTRO=ubuntu ARCH=i386
+  - CONFIG=Fedora_24 CI_DOCKER_IMAGE=professorkaos64/fedora-32:latest DISTRO=fedora ARCH=i386
 
 # Pull containers from Docker Hub.
 before_install:
