@@ -30,6 +30,8 @@ before_install:
   - docker pull $CI_DOCKER_IMAGE
 
 # Start the container from the image and perform tests.
+# linux32 will correct any false reporting of non-32bit (such as the 32 bit Arch Linux container)
+# Cannot pass i686 as an argument to linux32 on Arch Linux, so keep i386. uname -m will still report i686
 # Add a command to show all the variables. May be useful for debugging Travis.
 script:
   - echo "--CXX version?"; "$CXX" --version; echo "--CXX version confirmed";
