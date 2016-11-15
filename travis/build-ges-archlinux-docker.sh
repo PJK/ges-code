@@ -9,7 +9,8 @@ sleep 2s
 ######################
 
 pacman -Syy
-pacman -S --noconfirm make cmake boost-libs boost git gcc glibc libstdc++5
+#pacman -S --noconfirm make cmake boost-libs boost git gcc glibc libstdc++5
+pacman -S --noconfirm make cmake boost-libs boost git gcc glibc libstdc++5 expat gdbm sqlite readline zlib
 git submodule init --recursive
 
 ######################
